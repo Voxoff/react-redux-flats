@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { selectFlats } from '../actions';
+import { selectFlat } from '../actions/index.js';
 
 
 // COMPONENT OR CONSTANT?
 class Flat extends Component {
   handleClick = () => {
+    // debugger
     // if (this.props.method){ 
     //   this.props.method(this.props.flat)
     // }
@@ -32,18 +33,18 @@ class Flat extends Component {
         </div>
     )
   }
+}
 
-  function mapDispatchToProps() {
-    return bindActionCreators(
-      { selectFlat: selectFlat },
-      dispatch
-    );
-  }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { selectFlat: selectFlat },
+    dispatch
+  );
+}
 
-  function mapStateToProps(state) {
-    return{
-      selectedFlat: state.selectedFlat 
-    }
+function mapStateToProps(state) {
+  return{
+    selectedFlat: state.selectedFlat 
   }
 }
 
