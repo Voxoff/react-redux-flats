@@ -22,4 +22,3 @@ class SimpleMap extends Component {
 
 export default SimpleMap;
 
-// {lat: this.props.flat.lat, lng: this.props.flat.lng}
