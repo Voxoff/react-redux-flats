@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setFlats } from '../actions';
 
-import Flat from '../components/flat'
+import Flat from './flat'
 
 class FlatList extends Component {
   // static defaultProps = {
@@ -18,7 +18,6 @@ class FlatList extends Component {
   componentWillMount() {
     this.props.setFlats()
   }
-
 
   render() {
     return (
@@ -35,8 +34,8 @@ class FlatList extends Component {
 
   function mapDispatchToProps(dispatch) {
     return bindActionCreators(
-    { setFlats: setFlats },
-    dispatch
+      { setFlats: setFlats },
+      dispatch
     );
   }
 
@@ -46,8 +45,28 @@ class FlatList extends Component {
     };
   }
 
+export default connect(mapStateToProps, mapDispatchToProps)(FlatList)
 
-// method={this.props.method}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const FlatList = ({ flats, method }) => {
 //   return (
 //     <div>
@@ -58,6 +77,5 @@ class FlatList extends Component {
 //     </div>
 //   )
 // }
-export default connect(mapStateToProps, mapDispatchToProps)(FlatList)
 // export default FlatList;
 

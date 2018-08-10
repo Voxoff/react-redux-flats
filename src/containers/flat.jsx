@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import Data from '../../data/flats.js';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { selectFlats } from '../actions';
+
 
 // COMPONENT OR CONSTANT?
 class Flat extends Component {
   handleClick = () => {
-    if (this.props.method){ 
-      this.props.method(this.props.flat)
-    }
+    // if (this.props.method){ 
+    //   this.props.method(this.props.flat)
+    // }
+    // REDUX ACTION
+    this.props.selectFlat(this.props.flat)
+
   }
 
   render() {
+    let classes = "flat card"
+    if(this.props.flat === this.props.selectedFlat) {
+      classes += " selected"
+    }
+
     return(
-        <div className="card"
+        <div className={classes}
         onClick={this.handleClick}
         style={{backgroundImage: `linear-gradient(
           rgba(0, 0, 0, 0.3), 
@@ -21,7 +32,30 @@ class Flat extends Component {
         </div>
     )
   }
+
+  function mapDispatchToProps() {
+    return bindActionCreators(
+      { selectFlat: selectFlat },
+      dispatch
+    );
+  }
+
+  function mapStateToProps(state) {
+    return{
+      selectedFlat: state.selectedFlat 
+    }
+  }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Flat);
+
+
+
+
+
+
+
+
 
 // const Flat = (props) => {
 //   const style = {
@@ -36,5 +70,3 @@ class Flat extends Component {
 //     </div>
 //   );
 // };
-
-export default Flat;

@@ -5,9 +5,11 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
 import flatsReducer from './reducers/flat_reducer';
+import selectedFlatReducer from './reducers/selected_flat_reducer';
 
 const reducers = combineReducers({
-  flats: flatsReducer
+  flats: flatsReducer,
+  selectedFlat: selectedFlatReducer
 });
 
 import '../assets/stylesheets/application.scss';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Redux from 'redux';
 
-import Flat from './flat';
+import Flat from '../containers/flat';
 import Data from '../../data/flats.js';
 import FlatList from '../containers/flat_list'
 import SimpleMap from '../containers/map'
