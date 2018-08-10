@@ -1,6 +1,8 @@
+import flats from '../../data/flats'
+
 const selectedFlatReducer = (state, action) => {
   if (state === undefined){
-    return null
+    return flats[0]
   }
 
   switch(action.type) {
